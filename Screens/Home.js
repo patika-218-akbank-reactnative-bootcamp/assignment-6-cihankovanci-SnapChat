@@ -10,11 +10,14 @@ const handleSelect = () =>{
    
   };
 
-  const openCamera = () =>{
-   
+  const openCamera = ({navigation}) =>{
+    navigation.navigate('Send', {
+        imageurl: props.image,
+        
+      });
 };
 
-const Home = () => {
+const Home = ({navigation}) => {
     const [image, setImage] = useState(null);
     const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
 
@@ -52,7 +55,7 @@ const Home = () => {
      
       <CustomButton title="Select from Library" onPress={pickImage} />
       
-      <CustomButton title="Open Camera" onPress={openCamera} />
+      <CustomButton title="Open Camera" onPress={() => {navigation.navigate('Send', {imageurl: image, otherParam: 'test',})}} />
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
     </View>
   )
