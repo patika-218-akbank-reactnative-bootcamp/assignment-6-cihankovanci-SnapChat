@@ -6,18 +6,14 @@ import {store} from './utils/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Screens/Home';
+import BottomTab from './navigation/BottomTab/BottomTab';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <Provider store={store}>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Sign" component={Sign}/>
-        <Stack.Screen name="Home" component={Home}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <BottomTab />
     </Provider>
   );
 }
